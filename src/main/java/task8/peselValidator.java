@@ -21,3 +21,15 @@ public class peselValidator {
         System.out.println("Numer PESEL jest poprawny.");
     }
 }
+
+class wrongTypeOfDataException extends Exception {
+    public wrongTypeOfDataException(String message) {
+        super(message);
+    }
+}
+
+class illegalLengthException extends Exception {
+    public illegalLengthException(String message) {
+        super(message);
+    }
+}
