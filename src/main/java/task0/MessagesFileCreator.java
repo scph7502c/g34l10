@@ -33,6 +33,6 @@ public class MessagesFileCreator {
             content.add(line);
         }
         Files.write(path, content);
-        System.out.println("Content successfully added to file " + path.getFileName());
+        System.out.println("Dodano treść do pliku " + path.getFileName());
     }
 }
