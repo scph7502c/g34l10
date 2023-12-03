@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class secondLineReader {
+public class SecondLineReader {
     public static void main(String[] args) {
         String filePath = "C:\\Users\\damia\\OneDrive\\Pulpit\\FutureCollars\\Java\\Projekty\\g34l10\\src\\main\\resources\\data.txt";
 
@@ -14,13 +14,17 @@ public class secondLineReader {
 
         try {
             List<String> content = Files.readAllLines(path);
-            System.out.println("Co druga linia pliku " + path.getFileName() + ":");
-
-            for (int i = 1; i < content.size(); i += 2) {
-                System.out.println(content.get(i));
-            }
+            printEverySecondLine(path, content);
         } catch (IOException e) {
             System.err.println("Wystąpił błąd podczas odczytu pliku: " + e.getMessage());
+        }
+    }
+
+    private static void printEverySecondLine(Path path, List<String> content) {
+        System.out.println("Co druga linia pliku " + path.getFileName() + ":");
+
+        for (int i = 1; i < content.size(); i += 2) {
+            System.out.println(content.get(i));
         }
     }
 }
