@@ -9,10 +9,22 @@ import java.util.List;
 public class MessagesFileCreator {
 
     public static void main(String[] args) {
-        String[] lines = {"Kurs", "Java", "Lekcja 6", "Pliki", "Wyjątki", "Pliki", "Koniec pliku"};
+        String[] lines = {
+                "Kurs",
+                "Java",
+                "Lekcja 6",
+                "Pliki",
+                "Wyjątki",
+                "Pliki",
+                "Koniec pliku"
+        };
 
         String filePath = "C:\\Users\\damia\\OneDrive\\Pulpit\\FutureCollars\\Java\\Projekty\\g34l10\\src\\main\\resources\\data.txt";
 
+        createFileWithContent(filePath, lines);
+    }
+
+    private static void createFileWithContent(String filePath, String[] lines) {
         Path path = Paths.get(filePath);
 
         try {
@@ -23,16 +35,12 @@ public class MessagesFileCreator {
 
             addContentToFile(path, lines);
         } catch (IOException e) {
-            System.err.println("Wystąpił błąd podczas aktualizacji pliku: " + e.getMessage());
+            System.err.println("Wystąpił błąd podczas tworzenia pliku: " + e.getMessage());
         }
     }
 
     private static void addContentToFile(Path path, String[] lines) throws IOException {
-        List<String> content = Files.readAllLines(path);
-        for (String line : lines) {
-            content.add(line);
-        }
-        Files.write(path, content);
-        System.out.println("Dodano treść do pliku " + path.getFileName());
+        Files.write(path, List.of(lines));
+        System.out.println("Zawartość została pomyślnie dodana do pliku " + path.getFileName());
     }
 }
