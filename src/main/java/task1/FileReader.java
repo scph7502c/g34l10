@@ -13,14 +13,22 @@ public class FileReader {
         Path path = Paths.get(filePath);
 
         try {
-            List<String> content = Files.readAllLines(path);
-            System.out.println("Zawartość pliku " + path.getFileName() + ":");
-
-            for (String line : content) {
-                System.out.println(line);
-            }
+            List<String> content = readContentFromFile(path);
+            printFileContent(path, content);
         } catch (IOException e) {
             System.err.println("Wystąpił błąd podczas odczytu pliku: " + e.getMessage());
+        }
+    }
+
+    private static List<String> readContentFromFile(Path path) throws IOException {
+        return Files.readAllLines(path);
+    }
+
+    private static void printFileContent(Path path, List<String> content) {
+        System.out.println("Zawartość pliku " + path.getFileName() + ":");
+
+        for (String line : content) {
+            System.out.println(line);
         }
     }
 }
