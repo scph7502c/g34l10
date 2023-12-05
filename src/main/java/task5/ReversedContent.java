@@ -10,10 +10,10 @@ import java.util.List;
 public class ReversedContent {
     public static void main(String[] args) {
         String filePath = "C:\\Users\\damia\\OneDrive\\Pulpit\\FutureCollars\\Java\\Projekty\\g34l10\\src\\main\\resources\\data.txt";
-        reverseContent(filePath);
+        reverseFileContent(filePath);
     }
 
-    public static void reverseContent(String filePath) {
+    public static void reverseFileContent(String filePath) {
         File file = new File(filePath);
 
         if (!file.exists() || !file.canRead()) {
